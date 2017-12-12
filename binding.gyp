@@ -44,7 +44,7 @@
         }],
         [ "OS=='win'", {
           "libraries": [ "-llibgd" ],
-          "include_dirs": ["<(GD_Root)/src"],
+          "include_dirs": ["C:\GD\src"],
           "msvs_settings": {
             "VCLinkerTool": {
               "AdditionalOptions": ["/LIBPATH:<(PRODUCT_DIR)/build_msvc12_x64"],
