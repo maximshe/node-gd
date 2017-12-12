@@ -14,7 +14,15 @@
     }],
     ["OS=='win'", {
       'variables': {
-        'GD_Root%': "C:/GD"
+        'GD_Root%': "C:/GD",
+        'with_tiff%': 'false',
+        'with_xpm%': 'false',
+        'with_jpeg%': 'true',
+        'with_fontconfig%': 'false',
+        'with_freetype%': 'false',
+        'with_png%': 'false',
+        'with_webp%': 'false',
+        'with_vpx%': 'false'
       }
     }]
   ],
