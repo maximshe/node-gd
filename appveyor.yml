@@ -15,8 +15,8 @@ install:
   - node -v
   - npm -v
   - npm install -g --loglevel error node-gyp
-  - curl -fLsS -o "libgd2.zip" "https://github.com/libgd/libgd/archive/gd-2.2.5.zip"
-  - 7z x libgd2.zip -oGD > nul
+  - curl -LsS -o "libgd2.zip" "https://github.com/libgd/libgd/archive/gd-2.2.5.zip"
+  - 7z x libgd2.zip -oGD
   - mv GD/ C:/
   - npm install
 matrix:
