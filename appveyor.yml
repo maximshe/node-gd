@@ -17,8 +17,7 @@ install:
   - npm install -g --loglevel error node-gyp
   - curl -fLsS -o "libgd2.zip" "https://github.com/libgd/libgd/archive/gd-2.2.5.zip"
   - 7z x libgd2.zip -oGD > nul
-  - mv GD\ C:\
-  - dir C:\GD\src
+  - mv GD/ C:/
   - npm install
 matrix:
   fast_finish: true
