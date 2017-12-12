@@ -11,24 +11,37 @@
         'with_webp%': '<!(./util.sh webp)',
         'with_vpx%': '<!(./util.sh vpx)'
       }
+    }],
+    ["OS=='win'", {
+      'variables': {
+        'GD_Root%': "C:/GD"
+      }
     }]
   ],
   "targets": [
     {
       "target_name": "node_gd",
       "sources": ["cpp/addon.cc"],
-      "libraries": ["-lgd"],
       "include_dirs": [
         "<!(node -e \"require('nan')\")"
       ],
       "conditions": [
         [ "OS=='freebsd'", {
-          "libraries": ["-L/usr/local/lib"],
+          "libraries": ["-lgd", "-L/usr/local/lib"],
           "include_dirs": ["/usr/local/include"]
         }],
         [ "OS=='mac'", {
-          "libraries": ["-L/usr/local/lib", "-L/opt/local/lib"],
+          "libraries": ["-lgd", "-L/usr/local/lib", "-L/opt/local/lib"],
           "include_dirs": ["/usr/local/include", "/opt/local/include"]
+        }],
+        [ "OS=='win'", {
+          "libraries": [ "-llibgd" ],
+          "include_dirs": ["<(GD_Root)/src"]
+          "msvs_settings": {
+            "VCLinkerTool": {
+              "AdditionalOptions": ["/LIBPATH:<(PRODUCT_DIR)/build_msvc12_x64"],
+            },
+          }
         }],
         ["with_tiff=='true'", {
           'defines': [
