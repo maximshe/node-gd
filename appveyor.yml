@@ -4,7 +4,7 @@ environment:
     - nodejs_version: '6'
 image:
   - Visual Studio 2013
-  - Visual Studio 2015
+  #- Visual Studio 2015
 install:
   - ps: Install-Product node $env:nodejs_version x64
   - set CI=true
@@ -17,7 +17,7 @@ install:
   - npm install -g --loglevel error node-gyp
   - curl -fLsS -o "libgd2.zip" "https://github.com/libgd/libgd/archive/gd-2.2.5.zip"
   - 7z x libgd2.zip -oGD > nul
-  - mv GD/ C:/
+  - mv GD\ C:\
   - dir C:\GD\src
   - npm install
 matrix:
